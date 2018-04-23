@@ -14,39 +14,45 @@ body {
 	justify-content: center;
 	width: 100%;
 	height: 800px;
-	
 }
 #bg {
 	background-color: antiquewhite;
 }
-/*---------------------------------------------------------SIMPLE*/
-	#mainBox {
-    width: 80%;
+/*---------------------------------------------------------BODY*/
+	.main {
+    width: auto;
     height: auto;
+/* 	background: red; */
 	}
-		#mainBox h1 {
+		.main h1 {
 			text-align: center;
-			font-family: 'roboto', 'open-sans';
+			font-family: 'roboto', 'open-sans', sans serif;
+/* 			background: pink; */
 		}
-	#inputBox {
-    	width: 100%;
+	.inputContainer {
+    width: auto;
 		height: auto;
+/* 		background: green; */
 	}
 		#inputs {
 			display: flex;
+			flex-wrap: wrap;
 			justify-content: center;
-			width: 100%;
+			max-width: 1000px;
 			height: auto;
+/* 			border: 3px solid cyan; */
 		}
-			#hex, #rgb {
+			.data, .error  {
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
-				width: 30%;
+				flex-wrap: wrap;
+				width: 400px;
 				height: auto;
-				margin: 10px;
+				margin: 20px 10px;
+/* 				background: orange; */
 			}
-				#hex p, #rgb p {
+
+				.data p, .error p {
 					font-family: 'roboto';
 					text-align: center;
 					margin: 10px;
@@ -64,16 +70,21 @@ body {
 					outline: none;
 					font-size: 1em;
 				}
-				#rgb > div {
+				.data > div {
 					display: flex;
 					justify-content: center;
 				}
-				#inputR, #inputG, #inputB {
+.rgb {
+	display: flex;
+				justify-content: center;
+				align-items: center;
+}
+				.rgbValue {
 					width: 30%;
 				 	height: 50px;
 					border-radius: 15px;
           			padding: 15px 20px;
-					margin: 3px;
+					margin: 0 3px;
 					border: 2px solid lightsteelblue;
 					border-radius: 5px;
 					background-color: transparent;
@@ -85,53 +96,35 @@ body {
 					font-weight: 600;
 					text-align: center
 				}
-				input[name="rgbValue"] {
-					width: 30%;
-				 	height: 50px;
-					border-radius: 15px;
-          			padding: 12px 20px;
-					margin: 3px;
-					border: 2px solid lightsteelblue;
-					border-radius: 5px;
-					background-color: transparent;
-					resize: none;
-					outline: none;
-						font-size: 1em;
-				}
 				input:focus {
 					background-color: white;
 					color: grey;
 				}
-		#error {
-			display: flex;
-			justify-content: center;
-			width: 100%;
-			height: auto;
-			background-color: none;
-			;
-		}	
-			#errorBox {
-				width: 30%;
-				height: auto;
-				display: none;
-				background-color: none;
-			}
+.error {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 0 10px 20px 10px;
+/* 	background: purple; */
+	
+}
 			.smallBox {
 				width: 40px;
 				height: 40px;
-				direction: flex;			
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 20px;
 				margin: 0 5px;
-				background-color: antiquewhite;
+				background-color: white;
 			}
 				.smallBox p {
 					background-color: none;
-					text-align: center;
 					font-family: 'roboto';
 					font-size: 1.4em;
-					padding-top: 5px;
 					color: gray;
 				}
-				#box-a, #box-b, #box-c, #box-d, #box-e, #box-f, #box-hash {
+				.smallBoxNoError {
 					background-color: white;
 					color: gray;
 				}
@@ -140,6 +133,7 @@ body {
 			display: flex;
 			justify-content: center;
 			width: 100%;
+/* 			background: gray; */
 		}
 			button {
 				width: 200px;
@@ -147,9 +141,9 @@ body {
 				background-color: rgba(255,255,255,0);
 				color: rgba(150,150,150,1);
 				border-radius: 20px;
-				font-family: 'open sans', serif;
+				font-family: 'open sans', sans serif;
 				font-size: 1em; 
-				margin: 10px 0 45px 0;
+				margin: 20px 0;
 				padding: 10px;
 				cursor: pointer;
 				outline: none;
