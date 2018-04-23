@@ -9,41 +9,32 @@
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body id="bg">
-	<div id="mainBox">
+	<div class="main">
 		<h1>HEX to RGB</h1>
-		<div id="inputBox">
+		<div class="inputContainer">
 			<div id="inputs">
-				<div id="hex">
+				<div class="data" id="hex">
 					<p>HEX value:</p> 
 					<input id="inputOne" type="text" name="hexValue" maxlength="7" autofocus="autofocus" placeholder="HEX value...">
 				</div>
-				<div id="rgb">
+				<div class="data" id="rgb">
 					<p>RGB value</p> 
-					<div>
-						<div id="inputR"></div>
-						<div id="inputG"></div>
-						<div id="inputB"></div>
+					<div class="rgb">
+						<div class="rgbValue"></div>
+						<div class="rgbValue"></div>
+						<div class="rgbValue"></div>
 					</div>
 				</div>
-			</div>
-			<div id="error">
-				<div id="errorBox">
-					<div class="smallBox" id="box-hash"><p id="hash">#</p></div>
-					<div class="smallBox" id="box-a"><p id="r1">2</p></div>
-					<div class="smallBox" id="box-b"><p id="r2">3</p></div>
-					<div class="smallBox" id="box-c"><p id="g1">4</p></div>
-					<div class="smallBox" id="box-d"><p id="g2">5</p></div>
-					<div class="smallBox" id="box-e"><p id="b1">6</p></div>
-					<div class="smallBox" id="box-f"><p id="b2">7</p></div>
+				<div class="error">
+					<div class="smallBox"><p id="hash">#</p></div>
+					<div class="smallBox"><p id="r1">2</p></div>
+					<div class="smallBox"><p id="r2">3</p></div>
+					<div class="smallBox"><p id="g1">4</p></div>
+					<div class="smallBox"><p id="g2">5</p></div>
+					<div class="smallBox"><p id="b1">6</p></div>
+					<div class="smallBox"><p id="b2">7</p></div>
 				</div>
-				<div id="rgb">
-					<!-- <p>RGB value</p> 
-					<div>
-						<div id="inputR"></div>
-						<div id="inputG"></div>
-						<div id="inputB"></div>
-					</div> -->
-				</div>
+				<div class="data"></div>
 			</div>
 			<div id="buttonBox">
 				<button onclick="stringNumber()" id="convert">convert</button>
