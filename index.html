@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Color</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Nixie+One|Open+Sans:300,400,600,700|Lato:100,300,400,700|Roboto:100,300" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css"> 
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body id="bg">
+	<div id="mainBox">
+		<h1>HEX to RGB</h1>
+		<div id="inputBox">
+			<div id="inputs">
+				<div id="hex">
+					<p>HEX value:</p> 
+					<input id="inputOne" type="text" name="hexValue" maxlength="7" autofocus="autofocus" placeholder="HEX value...">
+				</div>
+				<div id="rgb">
+					<p>RGB value</p> 
+					<div>
+						<div id="inputR"></div>
+						<div id="inputG"></div>
+						<div id="inputB"></div>
+					</div>
+				</div>
+			</div>
+			<div id="error">
+				<div id="errorBox">
+					<div class="smallBox" id="box-hash"><p id="hash">#</p></div>
+					<div class="smallBox" id="box-a"><p id="r1">2</p></div>
+					<div class="smallBox" id="box-b"><p id="r2">3</p></div>
+					<div class="smallBox" id="box-c"><p id="g1">4</p></div>
+					<div class="smallBox" id="box-d"><p id="g2">5</p></div>
+					<div class="smallBox" id="box-e"><p id="b1">6</p></div>
+					<div class="smallBox" id="box-f"><p id="b2">7</p></div>
+				</div>
+				<div id="rgb">
+					<!-- <p>RGB value</p> 
+					<div>
+						<div id="inputR"></div>
+						<div id="inputG"></div>
+						<div id="inputB"></div>
+					</div> -->
+				</div>
+			</div>
+			<div id="buttonBox">
+				<button onclick="stringNumber()" id="convert">convert</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
