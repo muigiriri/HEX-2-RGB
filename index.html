@@ -5,17 +5,31 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Nixie+One|Open+Sans:300,400,600,700|Lato:100,300,400,700|Roboto:100,300" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css"> 
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
-<body id="bg">
+<body>
 	<div class="main">
 		<h1>HEX to RGB</h1>
 		<div class="inputContainer">
 			<div id="inputs">
 				<div class="data" id="hex">
 					<p>HEX value:</p> 
-					<input id="inputOne" type="text" name="hexValue" maxlength="7" autofocus="autofocus" placeholder="HEX value...">
+					<input type="text" name="hexValue" maxlength="7" autofocus="autofocus" placeholder="HEX value..." 
+					onfocus="displayFormat()">
+					<div class="format">
+						<div>
+							<i class="fa fa-info-circle"></i>
+							<b>formats</b>
+							<p></p>
+							#aaaaaa
+							#aaa
+							aaaaaa
+							aaa
+						</div>
+						<div></div>
+					</div>
 				</div>
 				<div class="data" id="rgb">
 					<p>RGB value</p> 
@@ -26,18 +40,18 @@
 					</div>
 				</div>
 				<div class="error">
-					<div class="smallBox"><p id="hash">#</p></div>
-					<div class="smallBox"><p id="r1">2</p></div>
-					<div class="smallBox"><p id="r2">3</p></div>
-					<div class="smallBox"><p id="g1">4</p></div>
-					<div class="smallBox"><p id="g2">5</p></div>
-					<div class="smallBox"><p id="b1">6</p></div>
-					<div class="smallBox"><p id="b2">7</p></div>
+					<div class="smallBox"><p></p></div>
+					<div class="smallBox"><p></p></div>
+					<div class="smallBox"><p></p></div>
+					<div class="smallBox"><p></p></div>
+					<div class="smallBox"><p></p></div>
+					<div class="smallBox"><p></p></div>
+					<div class="smallBox"><p></p></div>
 				</div>
 				<div class="data"></div>
 			</div>
 			<div id="buttonBox">
-				<button onclick="stringNumber()" id="convert">convert</button>
+				<button onclick="start()" id="convert">convert</button>
 			</div>
 		</div>
 	</div>
