@@ -215,25 +215,3 @@ input:focus .format > div {
 	font-size: 0.75em;
 	font-style: italic;
 }
-			button {
-				width: 200px;
-				border: 1px solid rgba(150,150,150,1);
-				background-color: rgba(255,255,255,0);
-				color: rgba(150,150,150,1);
-				border-radius: 20px;
-				font-family: 'open sans', sans serif;
-				font-size: 1em; 
-				margin: 20px 10px;
-				padding: 10px;
-				cursor: pointer;
-				outline: none;
-				}
-				button:hover {
-					background-color: lightblue;
-					color: white;
-					border: 1px solid lightblue;
-					}
-				button:focus {
-					background-color: rgba(49, 159, 221, 1);
-					color: rgba(225, 225, 225, 1);
-					}
