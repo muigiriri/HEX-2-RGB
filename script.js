@@ -1,787 +1,233 @@
-function stringNumber() {
-	//After the code runs, and theres an error, when it if fixed, these default styles load.
-	document.getElementById("errorBox").style.display = "none";
-	document.getElementById("inputR").style.borderColor = "lightsteelblue";
-	document.getElementById("inputG").style.borderColor = "lightsteelblue";
-	document.getElementById("inputB").style.borderColor = "lightsteelblue";
-	document.getElementById("box-hash").style.backgroundColor = "white";
-	document.getElementById("box-hash").style.borderRadius = "5px";
-	document.getElementById("box-a").style.backgroundColor = "white";
-	document.getElementById("box-a").style.borderRadius = "5px";
-	document.getElementById("box-b").style.backgroundColor = "white";
-	document.getElementById("box-b").style.borderRadius = "5px";
-	document.getElementById("box-c").style.backgroundColor = "white";
-	document.getElementById("box-c").style.borderRadius = "5px";
-	document.getElementById("box-d").style.backgroundColor = "white";
-	document.getElementById("box-d").style.borderRadius = "5px";
-	document.getElementById("box-e").style.backgroundColor = "white";
-	document.getElementById("box-e").style.borderRadius = "5px";
-	document.getElementById("box-f").style.backgroundColor = "white";
-	document.getElementById("box-f").style.borderRadius = "5px";
-	document.getElementById("box-f").style.color = "gray";
-	start();
+function displayFormat() {
+	var cc = document.querySelectorAll('.format > div').length;
+	for (var i = 0; i <= cc; i++) {
+		document.querySelectorAll('.format > div')[0].style.display = 'block'
+		document.querySelectorAll('.format > div')[1].style.display = 'block'
+	}
 }
 function start() {
-	//CODE 'LOGICALY' STARTS HERE
-	var num = document.getElementById("inputOne").value;
+	var num = document.querySelector('input').value.toLowerCase();
+	console.log(num)
 	//Returns a string
 	//Determine the length of the input to decide which function to run determined by the character length.
 	var numLength = num.length;
+	console.log(numLength)
 	if (numLength == 3) {
-		inputThree()
+		console.log('3')
 	} else if (numLength == 4) {
-		inputFour()
+		console.log('4')
 	} else if (numLength == 6) {
-		inputSix();
+		console.log('six values')
 	} else if (numLength == 7) {
-		inputSeven();
-	} else if (numLength == 1 || numLength == 2 || numLength == 5) {
-		alert("not enough values");
-	} else if (numLength == 0) {
-		
+		// document.querySelectorAll('.format > div')[0].style.display = 'none'
+		// document.querySelectorAll('.format > div')[1].style.display = 'none'
+		inputSeven()
 	}	
+	// } else if (numLength == 1 || numLength == 2 || numLength == 5) {
+	// 	alert("not enough values");
+	// } else if (numLength == 0) {
+	// 	alert("enter values");
+	// }	
 }
-//-------------------------------------------------------------------------------------When the characters are 6
-function inputSix() {
-	var hex = document.getElementById("inputOne").value;
-	var a = hex.charAt(0);
-	var b = hex.charAt(1);
-	var c = hex.charAt(2);
-	var d = hex.charAt(3);
-	var e = hex.charAt(4);
-	var f = hex.charAt(5);
 
-	//Transfer the input values in the error boxes. displays on 'input value' error
-	document.getElementById("r1").innerHTML = a;
-	document.getElementById("r2").innerHTML = b;
-	document.getElementById("g1").innerHTML = c;
-	document.getElementById("g2").innerHTML = d;
-	document.getElementById("b1").innerHTML = e;
-	document.getElementById("b2").innerHTML = f;
-
-	//Check the value "a" for validity ----------------------------------------------- A
-	if (a === "a") {	
-		var a = 10;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "b") {	
-		var a = 11;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "c") {	
-		var a = 12;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "d") {	
-		var a = 13;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "e") {	
-		var a = 14;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "f") {	
-		var a = 15;
-		document.getElementById("r1").style.color = "gray";
-	} else if (isNaN(a)) {
-		document.getElementById("r1").innerHTML = a;
-		document.getElementById("r1").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-a").style.backgroundColor = "red";
-		document.getElementById("box-a").style.borderRadius = "5px";	
-	} else {
-		document.getElementById("r1").style.color = "gray";
-	}
-	//Check the value "b" for validity ----------------------------------------------- B
-	if (b === "a") {
-		var b = 10;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "b") {
-		var b = 11;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "c") {
-		var b = 12;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "d") {
-		var b = 13;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "e") {
-		var b = 14;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "f") {
-		var b = 15;
-		document.getElementById("r2").style.color = "gray";
-	} else if (isNaN(b)) {
-		document.getElementById("r2").innerHTML = b;
-		document.getElementById("r2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-b").style.backgroundColor = "red";
-		document.getElementById("box-b").style.borderRadius = "5px";
-	} else {
-		document.getElementById("r2").style.color = "gray";
-	}
-	//Check the value "c" for validity ----------------------------------------------- C
-	if (c === "a") {
-		var c = 10;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "b") {
-		var c = 11;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "c") {
-		var c = 12;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "d") {
-		var c = 13;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "e") {
-		var c = 14;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "f") {
-		var c = 15;
-		document.getElementById("g1").style.color = "gray";
-	} else if (isNaN(c)) {
-		document.getElementById("g1").innerHTML = c;
-		document.getElementById("g1").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-c").style.backgroundColor = "red";
-		document.getElementById("box-c").style.borderRadius = "5px";
-	} else {
-		document.getElementById("g1").style.color = "gray";
-	}
-	//Check the value "d" for validity ----------------------------------------------- D
-	if (d === "a") {
-		var d = 10;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "b") {
-		var d = 11;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "c") {
-		var d = 12;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "d") {
-		var d = 13;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "e") {
-		var d = 14;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "f") {
-		var d = 15;
-		document.getElementById("g2").style.color = "gray";
-	} else if (isNaN(d)) {
-		document.getElementById("g2").innerHTML = d;
-		document.getElementById("g2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-d").style.backgroundColor = "red";
-		document.getElementById("box-d").style.borderRadius = "5px";
-	} else {
-		document.getElementById("g2").style.color = "gray";
-	}
-	//Check the value "e" for validity ----------------------------------------------- E
-	if (e === "a") {
-		var e = 10;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "b") {
-		var e = 11;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "c") {
-		var e = 12;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "d") {
-		var e = 13;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "e") {
-		var e = 14;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "f") {
-		var e = 15;
-		document.getElementById("b1").style.color = "gray";
-	} else if (isNaN(e)) {
-		document.getElementById("b1").innerHTML = e;
-		document.getElementById("b1").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-e").style.backgroundColor = "red";
-		document.getElementById("box-e").style.borderRadius = "5px";
-	} else {
-		document.getElementById("b1").style.color = "gray";
-	}
-	//Check the value "f" for validity ----------------------------------------------- F
-	if (f === "a") {
-		var f = 10;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "b") {
-		var f = 11;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "c") {
-		var f = 12;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "d") {
-		var f = 13;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "e") {
-		var f = 14;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "f") {
-		var f = 15;
-		document.getElementById("b2").style.color = "gray";
-	} else if (isNaN(f)) {
-		document.getElementById("b2").innerHTML = f;
-		document.getElementById("b2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-f").style.backgroundColor = "red";
-		document.getElementById("box-f").style.borderRadius = "5px";
-	} else {
-		document.getElementById("b2").style.color = "gray";
-	}
-	//Calculate for input with 6 digits/values ----------------------------------------------- FORMULA
-	var red = (a * 16) + (b * 1);
-	if (isNaN(red)) {
-		document.getElementById("inputR").innerHTML = "?";
-		document.getElementById("inputR").style.borderColor = "red";
-	} else {
-		document.getElementById("inputR").innerHTML = red;	
-	}
-	var green = (c * 16) + (d * 1);
-	if (isNaN(green)) {
-		document.getElementById("inputG").innerHTML = "?";
-		document.getElementById("inputG").style.borderColor = "red";
-	} else {
-		document.getElementById("inputG").innerHTML = green;	
-	}
-	var blue = (e * 16) + (f * 1);
-	if (isNaN(blue)) {
-		document.getElementById("inputB").innerHTML = "?";
-		document.getElementById("inputB").style.borderColor = "red";
-	} else {
-		document.getElementById("inputB").innerHTML = blue;	
-	}
-	//Change the background color to the "converted" color
-	document.getElementById("bg").style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
-}
-//-------------------------------------------------------------------------------------When the characters are 7
+// ------------------------------------------------------------------------------------- SEVEN 'DIGITS'
 function inputSeven() {
-	var hex = document.getElementById("inputOne").value;
-	var hash = hex.charAt(0);
-	var a = hex.charAt(1);
-	var b = hex.charAt(2);
-	var c = hex.charAt(3);
-	var d = hex.charAt(4);
-	var e = hex.charAt(5);
-	var f = hex.charAt(6);
+	var num = document.querySelector('input').value.toLowerCase();
+	var numLength = num.length;
+	var dd = document.querySelectorAll('.smallBox');
+	var hex;
+	// + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + CALCULATE THE RGB VALUES.
+	// ---------- ---------- ---------- red value
+		var a;
+		var b;
+		if (num.charAt(1) === "a") {
+			var a = 10
+		} else if (num.charAt(1) === "b") {
+			var a = 11
+		} else if (num.charAt(1) === "c") {
+			var a = 12
+		} else if (num.charAt(1) === "d") {
+			var a = 13
+		} else if (num.charAt(1) === "e") {
+			var a = 14
+		} else if (num.charAt(1) === "f") {
+			var a = 15
+		} else {
+			var a = num.charAt(1)
+		};
+		
+		if (num.charAt(2) === "a") {
+			var b = 10
+		} else if (num.charAt(2) === "b") {
+			var b = 11
+		} else if (num.charAt(2) === "c") {
+			var b = 12
+		} else if (num.charAt(2) === "d") {
+			var b = 13
+		} else if (num.charAt(2) === "e") {
+			var b = 14
+		} else if (num.charAt(2) === "f") {
+			var b = 15
+		} else {
+			var b = num.charAt(2)
+		};
+		var red = (a * 16) + (b * 1);
+	// ---------- ---------- ---------- green value
+		var c;
+		var d;
+		if (num.charAt(3) === "a") {
+			var c = 10
+		} else if (num.charAt(3) === "b") {
+			var c = 11
+		} else if (num.charAt(3) === "c") {
+			var c = 12
+		} else if (num.charAt(3) === "d") {
+			var c = 13
+		} else if (num.charAt(3) === "e") {
+			var c = 14
+		} else if (num.charAt(3) === "f") {
+			var c = 15
+		} else {
+			var c = num.charAt(3)
+		};
 
-	//Transfer the input values in the error boxes. displays on 'input value' error
-	document.getElementById("hash").innerHTML = hash;
-	document.getElementById("r1").innerHTML = a;
-	document.getElementById("r2").innerHTML = b;
-	document.getElementById("g1").innerHTML = c;
-	document.getElementById("g2").innerHTML = d;
-	document.getElementById("b1").innerHTML = e;
-	document.getElementById("b2").innerHTML = f;
-
-	//Check to see if "#" is # or not, since with 7 values, the first has to be #.
-	if (hash !== "#") {
-		document.getElementById("hash").innerHTML = hash;
-		document.getElementById("hash").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-hash").style.backgroundColor = "red";
-		document.getElementById("box-hash").style.borderRadius = "5px";
-	} else {
-		document.getElementById("hash").style.color = "gray";
-	}
-	//Check if "a" is a letter and convert it to its coresponding value.----------------- A
-	if (a === "a") {	
-		var a = 10;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "b") {	
-		var a = 11;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "c") {	
-		var a = 12;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "d") {	
-		var a = 13;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "e") {	
-		var a = 14;
-		document.getElementById("r1").style.color = "gray";
-	} else if (a === "f") {	
-		var a = 15;
-		document.getElementById("r1").style.color = "gray";
-	} else if (isNaN(a)) {
-		document.getElementById("r1").innerHTML = a;
-		document.getElementById("r1").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-a").style.backgroundColor = "red";
-		document.getElementById("box-a").style.borderRadius = "5px";	
-	} else {
-		document.getElementById("r1").style.color = "gray";
-	}
-	//Check the value "b" for validity ----------------------------------------------- B
-	if (b === "a") {
-		var b = 10;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "b") {
-		var b = 11;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "c") {
-		var b = 12;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "d") {
-		var b = 13;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "e") {
-		var b = 14;
-		document.getElementById("r2").style.color = "gray";
-	} else if (b === "f") {
-		var b = 15;
-		document.getElementById("r2").style.color = "gray";
-	} else if (isNaN(b)) {
-		document.getElementById("r2").innerHTML = b;
-		document.getElementById("r2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-b").style.backgroundColor = "red";
-		document.getElementById("box-b").style.borderRadius = "5px";
-	} else {
-		document.getElementById("r2").style.color = "gray";
-	}
-	//Check the value "c" for validity ----------------------------------------------- C
-	if (c === "a") {
-		var c = 10;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "b") {
-		var c = 11;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "c") {
-		var c = 12;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "d") {
-		var c = 13;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "e") {
-		var c = 14;
-		document.getElementById("g1").style.color = "gray";
-	} else if (c === "f") {
-		var c = 15;
-		document.getElementById("g1").style.color = "gray";
-	} else if (isNaN(c)) {
-		document.getElementById("g1").innerHTML = c;
-		document.getElementById("g1").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-c").style.backgroundColor = "red";
-		document.getElementById("box-c").style.borderRadius = "5px";
-	} else {
-		document.getElementById("g1").style.color = "gray";
-	}
-	//Check the value "d" for validity ----------------------------------------------- D
-	if (d === "a") {
-		var d = 10;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "b") {
-		var d = 11;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "c") {
-		var d = 12;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "d") {
-		var d = 13;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "e") {
-		var d = 14;
-		document.getElementById("g2").style.color = "gray";
-	} else if (d === "f") {
-		var d = 15;
-		document.getElementById("g2").style.color = "gray";
-	} else if (isNaN(d)) {
-		document.getElementById("g2").innerHTML = d;
-		document.getElementById("g2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-d").style.backgroundColor = "red";
-		document.getElementById("box-d").style.borderRadius = "5px";
-	} else {
-		document.getElementById("g2").style.color = "gray";
-	}
-	//Check the value "e" for validity ----------------------------------------------- E
-	if (e === "a") {
-		var e = 10;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "b") {
-		var e = 11;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "c") {
-		var e = 12;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "d") {
-		var e = 13;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "e") {
-		var e = 14;
-		document.getElementById("b1").style.color = "gray";
-	} else if (e === "f") {
-		var e = 15;
-		document.getElementById("b1").style.color = "gray";
-	} else if (isNaN(e)) {
-		document.getElementById("b1").innerHTML = e;
-		document.getElementById("b1").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-e").style.backgroundColor = "red";
-		document.getElementById("box-e").style.borderRadius = "5px";
-	} else {
-		document.getElementById("b1").style.color = "gray";
-	}
-	//Check the value "f" for validity ----------------------------------------------- F
-	if (f === "a") {
-		var f = 10;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "b") {
-		var f = 11;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "c") {
-		var f = 12;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "d") {
-		var f = 13;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "e") {
-		var f = 14;
-		document.getElementById("b2").style.color = "gray";
-	} else if (f === "f") {
-		var f = 15;
-		document.getElementById("b2").style.color = "gray";
-	} else if (isNaN(f)) {
-		document.getElementById("b2").innerHTML = f;
-		document.getElementById("b2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-f").style.backgroundColor = "red";
-		document.getElementById("box-f").style.borderRadius = "5px";
-	} else {
-		document.getElementById("b2").style.color = "gray";
-	}
-	//Do the calculations and display the RGB value -----------------------------FOMULA
-	var red = (a * 16) + (b * 1);
-	if (isNaN(red)) {
-		document.getElementById("inputR").innerHTML = "?";
-		document.getElementById("inputR").style.borderColor = "red";
-	} else {
-		document.getElementById("inputR").innerHTML = red;
-	}
-	var green = (c * 16) + (d * 1);
-	if (isNaN(green)) {
-		document.getElementById("inputG").innerHTML = "?";
-		document.getElementById("inputG").style.borderColor = "red";
-	} else {
-		document.getElementById("inputG").innerHTML = green;
-	}	
-	var blue = (e * 16) + (f * 1);
-	if (isNaN(blue)) {
-		document.getElementById("inputB").innerHTML = "?";
-		document.getElementById("inputB").style.borderColor = "red";
-	} else {
-		document.getElementById("inputB").innerHTML = blue;
-	}	
-	//Change the background color to the "converted" color
-	document.getElementById("bg").style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";	
+		if (num.charAt(4) === "a") {
+			var d = 10
+		} else if (num.charAt(4) === "b") {
+			var d = 11
+		} else if (num.charAt(4) === "c") {
+			var d = 12
+		} else if (num.charAt(4) === "d") {
+			var d = 13
+		} else if (num.charAt(4) === "e") {
+			var d = 14
+		} else if (num.charAt(4) === "f") {
+			var d = 15
+		} else {
+			var d = num.charAt(4)
+		};
+		var green = (c * 16) + (d * 1);
+	// ---------- ---------- ---------- blue value
+		var e;
+		var f;
+		if (num.charAt(5) === "a") {
+			var e = 10
+		} else if (num.charAt(5) === "b") {
+			var e = 11
+		} else if (num.charAt(5) === "c") {
+			var e = 12
+		} else if (num.charAt(5) === "d") {
+			var e = 13
+		} else if (num.charAt(5) === "e") {
+			var e = 14
+		} else if (num.charAt(5) === "f") {
+			var e = 15
+		} else {var e = num.charAt(5)
+		};
+		
+		if (num.charAt(6) === "a") {
+			var f = 10
+		} else if (num.charAt(6) === "b") {
+			var f = 11
+		} else if (num.charAt(6) === "c") {
+			var f = 12
+		} else if (num.charAt(6) === "d") {
+			var f = 13
+		} else if (num.charAt(6) === "e") {
+			var f = 14
+		} else if (num.charAt(6) === "f") {
+			var f = 15
+		} else {var f = num.charAt(6)
+		};
+		var blue = (e * 16) + (f * 1);
+	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Change the BG color to the "converted" color
+		document.querySelector("body").style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+	// + + + + + + + + + + + + + + + + + + + + + + + + + + + + + CHANGE THE PAGE THEME TO COMPLIMENT THE BG COLOR.
+	// ---------- ---------- ---------- Convert rgb to HSL
+	// ---------- ---------- Hue (H) Value
+		var hue;
+		var r = red / 255;
+		var g = green / 255;
+		var b = blue / 255;
+		var maxRGB = Math.max(r,g,b);
+		var minRGB = Math.min(r,g,b);
+		if (maxRGB == r) {
+			var hue = ((g - b) / (maxRGB - minRGB)) * 60;
+		} else if (maxRGB == g) {
+			var hue = (2 +(b - r) / (maxRGB - minRGB)) * 60;
+		} else if (maxRGB == b) {
+			var hue = (4 +(r - g) / (maxRGB - minRGB)) * 60;
+		}
+	// ---------- ---------- Lightness (L) Value
+		var lightness = (maxRGB + minRGB) / 2;
+	// ---------- ---------- Saturation (S) Value
+		var saturation = (maxRGB - minRGB) / (1 - Math.abs((2 * lightness)-1));
+	// ---------- Round of the HSB values.
+		var h = Math.round(hue);
+		var s = Math.round(saturation * 100);
+		var l = Math.round(lightness * 100);
+	// ---------- ---------- ---------- Estimate complementary color.
+	// ---------- ---------- changing Hue (H) value only, (S) and (L) remain constant.
+		var complimentHue;
+		if (h <= 180) {
+			var complimentHue = h + 180;
+		} else if (h > 180) {
+			var complimentHue = h - 180;
+		}
+	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Change the POP-UP ICON color to the compliment color 
+		document.querySelector('i').style.color  = "hsl("+complimentHue+","+s+"%,"+l+"%)"
+	// ---------- ---------- ---------- Calculate darker BG color, Monochrome
+		var darkLightness;
+		if (l <= 50) {
+			var darkLightness = 90;
+		} else if (l > 50) {
+			var darkLightness = 10;
+		}
+	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Change the Title and subtitles to a LIGHT monochrome theme
+		document.querySelector('h1').style.color  = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.querySelector('.data p').style.color  = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.querySelector('.rgb').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Display the RED, GREEN and BLUE colors
+		if (isNaN(red)) {
+			document.getElementById('rr').innerHTML = "???";
+			document.getElementById('rr').style.color = "red";
+		} else {
+			document.getElementById('rr').innerHTML = red;
+			document.getElementById('rr').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		}
+		if (isNaN(green)) {
+			document.getElementById('gg').innerHTML = "???"
+			document.getElementById('gg').style.color = "red";
+		} else {
+			document.getElementById('gg').innerHTML = green;
+			document.getElementById('gg').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		}
+		if (isNaN(blue)) {
+			document.getElementById('bb').innerHTML = "???";
+			document.getElementById('bb').style.color = "red";
+		} else {
+			document.getElementById('bb').innerHTML = blue;
+			document.getElementById('bb').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		}
+	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^display error on the inputs.
+		for (var i = 0 ; i <= numLength ; i++) {
+			var dd = document.querySelectorAll('.smallBox');
+			dd[i].innerHTML = num.charAt(i);
+			var position = num.charAt(i);
+			if ( position === "a" || position === "b" || position === "c" || position === "d" || 
+				position === "e" || position === "f" || position === "0" || position === "1" || 
+				position === "2" || position === "3" || position === "4" || position === "5" || 
+				position === "6" || position === "7" || position === "8" || position === "9" ) {
+				document.querySelector('.error').style.visibility = 'hidden';
+				document.querySelectorAll('.smallBox')[0].innerHTML = '#';
+				document.querySelectorAll('.smallBox')[0].style.background  = 'green';
+				dd[i].innerHTML = num.charAt(i);
+				dd[i].style.backgroundColor = "green"
+			}
+			 else {
+			 	document.querySelector('.error').style.visibility = 'visible';
+				dd[i].style.backgroundColor = "red"
+			}
+		}
+		console.log('ola it"s working')
 }
-//-------------------------------------------------------------------------------------When the characters are 4
-function inputFour() {
-	var hex = document.getElementById("inputOne").value;
-	var hash = hex.charAt(0);
-	var a = hex.charAt(1);
-	var b = hex.charAt(2);
-	var c = hex.charAt(3);
-
-	//Transfer the input values in the error boxes. displays on 'input value' error
-	document.getElementById("hash").innerHTML = hash;
-	document.getElementById("r1").innerHTML = a;
-	document.getElementById("r2").innerHTML = a;
-	document.getElementById("g1").innerHTML = b;
-	document.getElementById("g2").innerHTML = b;
-	document.getElementById("b1").innerHTML = c;
-	document.getElementById("b2").innerHTML = c;
-	
-	//Check to see if "#" is # or not, since with 4 values, the first has to be #.
-	if (hash !== "#") {
-		document.getElementById("hash").innerHTML = hash;
-		document.getElementById("hash").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-hash").style.backgroundColor = "red";
-		document.getElementById("box-hash").style.borderRadius = "5px";
-	} else {
-		document.getElementById("hash").style.color = "gray";
-	}
-	//Check if "a" is a letter and convert it to its coresponding value.----------------------A
-	if (a === "a") {
-		var a = 10;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "b") {
-		var a = 11;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "c") {
-		var a = 12;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "d") {
-		var a = 13;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "e") {
-		var a = 14;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "f") {
-		var a = 15;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (isNaN(a)) {
-		document.getElementById("r1").style.color = "white";
-		document.getElementById("r2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-a").style.backgroundColor = "red";
-		document.getElementById("box-b").style.backgroundColor = "red";
-		document.getElementById("box-a").style.borderRadius = "5px";
-		document.getElementById("box-b").style.borderRadius = "5px";	
-	} else {
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	}
-	//Check if "b" is a letter and convert it to its coresponding value.----------------------B
-	if (b === "a") {
-		var b = 10;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "b") {
-		var b = 11;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "c") {
-		var b = 12;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "d") {
-		var b = 13;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "e") {
-		var b = 14;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "f") {
-		var b = 15;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (isNaN(b)) {
-		document.getElementById("g1").style.color = "white";
-		document.getElementById("g2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-c").style.backgroundColor = "red";
-		document.getElementById("box-d").style.backgroundColor = "red";
-		document.getElementById("box-c").style.borderRadius = "5px";
-		document.getElementById("box-d").style.borderRadius = "5px";
-	} else {
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	}
-	//Check if "c" is a letter and convert it to its coresponding value.----------------------C
-	if (c === "a") {
-		var c = 10;
-		document.getElementById("b1").style.color = "gray";
-		document.getElementById("b2").style.color = "gray";
-	} else if (c === "b") {
-		var c = 11;
-		document.getElementById("b1").style.color = "gray";
-		document.getElementById("b2").style.color = "gray";
-	} else if (c === "c") {
-		var c = 12;
-		document.getElementById("b1").style.color = "gray";
-		document.getElementById("b2").style.color = "gray";
-	} else if (c === "d") {
-		var c = 13;
-		document.getElementById("b1").style.color = "gray";
-		document.getElementById("b2").style.color = "gray";
-	} else if (c === "e") {
-		var c = 14;
-		document.getElementById("b1").style.color = "gray";
-		document.getElementById("b2").style.color = "gray";
-	} else if (c === "f") {
-		var c = 15;
-		document.getElementById("b1").style.color = "gray";
-		document.getElementById("b2").style.color = "gray";
-	} else if (isNaN(c)) {
-		document.getElementById("b1").style.color = "white";
-		document.getElementById("b2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-e").style.backgroundColor = "red";
-		document.getElementById("box-f").style.backgroundColor = "red";
-		document.getElementById("box-e").style.borderRadius = "5px";
-		document.getElementById("box-f").style.borderRadius = "5px";
-	} else {
-		document.getElementById("b1").style.color = "gray";
-		document.getElementById("b2").style.color = "gray";
-	}
-	//Do the calculations and display the RGB value---------------------------------------- FORMULA
-	//Formula changes as the first value represents both 'a' and 'b'.
-	//E.g #111 = #111111
-	var red = (a * 16) + (a * 1);
-	if (isNaN(red)) {
-		document.getElementById("inputR").innerHTML = "?";
-		document.getElementById("inputR").style.borderColor = "red";
-	} else {
-		document.getElementById("inputR").innerHTML = red;
-	}
-	var green = (b * 16) + (b * 1);
-	if (isNaN(green)) {
-		document.getElementById("inputG").innerHTML = "?";
-		document.getElementById("inputG").style.borderColor = "red";
-	} else {
-		document.getElementById("inputG").innerHTML = green;
-	}
-	
-	var blue = (c * 16) + (c * 1);
-	if (isNaN(blue)) {
-		document.getElementById("inputB").innerHTML = "?";
-		document.getElementById("inputB").style.borderColor = "red";
-	} else {
-		document.getElementById("inputB").innerHTML = blue;
-	}
-	//Change the background color to the "converted" color
-	document.getElementById("bg").style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";		
-}
-//-------------------------------------------------------------------------------------When the characters are 3
-function inputThree() {
-	var hex = document.getElementById("inputOne").value;
-	var a = hex.charAt(0);
-	var b = hex.charAt(1);
-	var c = hex.charAt(2);
-
-	//Transfer the input values in the error boxes. displays on 'input value' error
-	document.getElementById("hash").innerHTML = "#";
-	document.getElementById("r1").innerHTML = a;
-	document.getElementById("r2").innerHTML = a;
-	document.getElementById("g1").innerHTML = b;
-	document.getElementById("g2").innerHTML = b;
-	document.getElementById("b1").innerHTML = c;
-	document.getElementById("b2").innerHTML = c;
-	
-	//Check if "a" is a letter and convert it to its coresponding value.----------------------A
-	if (a === "a") {
-		var a = 10;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "b") {
-		var a = 11;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "c") {
-		var a = 12;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "d") {
-		var a = 13;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "e") {
-		var a = 14;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (a === "f") {
-		var a = 15;
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	} else if (isNaN(a)) {
-		document.getElementById("r1").style.color = "white";
-		document.getElementById("r2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-a").style.backgroundColor = "red";
-		document.getElementById("box-b").style.backgroundColor = "red";
-		document.getElementById("box-a").style.borderRadius = "5px";
-		document.getElementById("box-b").style.borderRadius = "5px";	
-	} else {
-		document.getElementById("r1").style.color = "gray";
-		document.getElementById("r2").style.color = "gray";
-	}
-	//Check if "b" is a letter and convert it to its coresponding value.----------------------B
-	if (b === "a") {
-		var b = 10;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "b") {
-		var b = 11;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "c") {
-		var b = 12;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "d") {
-		var b = 13;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "e") {
-		var b = 14;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (b === "f") {
-		var b = 15;
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	} else if (isNaN(b)) {
-		document.getElementById("g1").style.color = "white";
-		document.getElementById("g2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-c").style.backgroundColor = "red";
-		document.getElementById("box-d").style.backgroundColor = "red";
-		document.getElementById("box-c").style.borderRadius = "5px";
-		document.getElementById("box-d").style.borderRadius = "5px";
-	} else {
-		document.getElementById("g1").style.color = "gray";
-		document.getElementById("g2").style.color = "gray";
-	}
-	//Check if "c" is a letter and convert it to its coresponding value.----------------------C
-	if (c === "a") {
-		var c = 10;
-	} else if (c === "b") {
-		var c = 11;
-	} else if (c === "c") {
-		var c = 12;
-	} else if (c === "d") {
-		var c = 13;
-	} else if (c === "e") {
-		var c = 14;
-	} else if (c === "f") {
-		var c = 15;
-	} else if (isNaN(c)) {
-		document.getElementById("b1").style.color = "white";
-		document.getElementById("b2").style.color = "white";
-		document.getElementById("errorBox").style.display = "flex";
-		document.getElementById("box-e").style.backgroundColor = "red";
-		document.getElementById("box-f").style.backgroundColor = "red";
-		document.getElementById("box-e").style.borderRadius = "5px";
-		document.getElementById("box-f").style.borderRadius = "5px";
-	} else {
-		document.getElementById("b1").style.color = "gray";
-		document.getElementById("b2").style.color = "gray";
-	}
-	//Do the calculations and display the RGB value---------------------------------------- FORMULA
-	//Formula changes as the first value represents both 'a' and 'b'.
-	//E.g 111 = 111111
-	var red = (a * 16) + (a * 1);
-	if (isNaN(red)) {
-		document.getElementById("inputR").innerHTML = "?";
-		document.getElementById("inputR").style.borderColor = "red";
-	} else {
-		document.getElementById("inputR").innerHTML = red;
-	}
-	var green = (b * 16) + (b * 1);
-	if (isNaN(green)) {
-		document.getElementById("inputG").innerHTML = "?";
-		document.getElementById("inputG").style.borderColor = "red";
-	} else {
-		document.getElementById("inputG").innerHTML = green;
-	}
-	var blue = (c * 16) + (c * 1);
-	if (isNaN(blue)) {
-		document.getElementById("inputB").innerHTML = "?";
-		document.getElementById("inputB").style.borderColor = "red";
-	} else {
-		document.getElementById("inputB").innerHTML = blue;
-	}
-	//Change the background color to the "converted" color
-	document.getElementById("bg").style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";		
-}
-
-// document.getElementById("convert").addEventListener("click", function(stringNumber){});
