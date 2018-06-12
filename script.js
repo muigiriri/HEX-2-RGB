@@ -1,149 +1,402 @@
-function displayFormat() {
-	var cc = document.querySelectorAll('.format > div').length;
-	for (var i = 0; i <= cc; i++) {
-		document.querySelectorAll('.format > div')[0].style.display = 'block'
-		document.querySelectorAll('.format > div')[1].style.display = 'block'
-	}
-}
 function start() {
-	var num = document.querySelector('input').value.toLowerCase();
-	console.log(num)
+	var val = document.querySelector('input').value.toLowerCase();
+	// console.log(val)
 	//Returns a string
 	//Determine the length of the input to decide which function to run determined by the character length.
-	var numLength = num.length;
-	console.log(numLength)
-	if (numLength == 3) {
-		console.log('3')
-	} else if (numLength == 4) {
-		console.log('4')
-	} else if (numLength == 6) {
-		console.log('six values')
-	} else if (numLength == 7) {
-		// document.querySelectorAll('.format > div')[0].style.display = 'none'
-		// document.querySelectorAll('.format > div')[1].style.display = 'none'
-		inputSeven()
-	}	
-	// } else if (numLength == 1 || numLength == 2 || numLength == 5) {
-	// 	alert("not enough values");
-	// } else if (numLength == 0) {
-	// 	alert("enter values");
-	// }	
+	var valLength = val.length;
+	if (valLength == 3) {
+		withoutHash();
+		threeValues();
+		calculateThree();
+		changeColorScheme()
+	} else if (valLength == 1 || valLength == 2 || valLength == 5) {
+		console.log('not valid')
+	}else if (valLength == 4) {
+		withHash();
+		fourValues();
+		calculateFour();
+		changeColorScheme()	
+	} else if (valLength == 6) {
+		withoutHash()
+		sixValues();
+		calculateSix();	
+		changeColorScheme()	
+	} else if (valLength == 7) {
+		withHash();	
+		sevenValues();
+		calculateSeven();
+		changeColorScheme();		
+	}		
 }
-
-// ------------------------------------------------------------------------------------- SEVEN 'DIGITS'
-function inputSeven() {
+// + + + CHECK VALIDITY OF THE INPUT VALUES AND DISPLAY THEM IN THE ERROR BOXES
+// + + Display For inputs with a hash #. at the beginning 4, 7.
+// + For # values
+function withHash() {
+	// check to see if the first value is a "#"
+	var val = document.querySelector('input').value.toLowerCase();
+	var hex = val.charAt(0);
+	if (hex === '#') {
+		document.querySelector('.hexBox').innerHTML  = '#';
+		document.querySelector('.hexBox').style.backgroundColor = "transparent";
+	} else {
+		document.querySelector('.hexBox').innerHTML  = hex;
+		document.querySelector('.hexBox').style.background  = "red";
+	}
+}
+// + For 4 values
+function fourValues() {
+	var val = document.querySelector('input').value.toLowerCase();
+	var r = val.charAt(1);
+	var r1 = val.charAt(1);
+	var g = val.charAt(2);
+	var g1 = val.charAt(2);
+	var b = val.charAt(3);
+	var b1 = val.charAt(3);
+	//insert the values in an array	
+	var rgb = [r,r1,g,g1,b,b1,];
+	var rgbLength = rgb.length;
+	for (var i = 0 ; i < rgbLength ; i++) {
+		var pos = rgb[i];
+		if ( pos === "a" || pos === "b" || pos === "c" || pos === "d" || 
+			pos === "e" || pos === "f" || pos === "0" || pos === "1" || 
+			pos === "2" || pos === "3" || pos === "4" || pos === "5" || 
+			pos === "6" || pos === "7" || pos === "8" || pos === "9") {				
+			document.querySelectorAll('.smallBox')[i].innerHTML = rgb[i];
+			document.querySelectorAll('.smallBox')[i].style.backgroundColor = "transparent";
+			// document.querySelectorAll('.smallBox')[i].style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+			document.querySelectorAll('.smallBox')[i].style.border = '1px';
+			document.querySelectorAll('.smallBox')[i].style.borderStyle = 'solid';
+			// document.querySelectorAll('.smallBox')[i].style.borderColor = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		}
+		else {
+			document.querySelectorAll('.smallBox')[i].innerHTML = rgb[i];
+			document.querySelectorAll('.smallBox')[i].style.backgroundColor = "red";
+		}
+	}
+}
+// + For 7 values
+function sevenValues() {
+	var val = document.querySelector('input').value.toLowerCase();
+	var r = val.charAt(1);
+	var r1 = val.charAt(2);
+	var g = val.charAt(3);
+	var g1 = val.charAt(4);
+	var b = val.charAt(5);
+	var b1 = val.charAt(6);
+	//insert the values in an array	
+	var rgb = [r,r1,g,g1,b,b1,];
+	var rgbLength = rgb.length;
+	for (var i = 0 ; i < rgbLength ; i++) {
+		var pos = rgb[i];
+		if ( pos === "a" || pos === "b" || pos === "c" || pos === "d" || 
+			pos === "e" || pos === "f" || pos === "0" || pos === "1" || 
+			pos === "2" || pos === "3" || pos === "4" || pos === "5" || 
+			pos === "6" || pos === "7" || pos === "8" || pos === "9") {				
+			document.querySelectorAll('.smallBox')[i].innerHTML = rgb[i];
+			document.querySelectorAll('.smallBox')[i].style.backgroundColor = "transparent";
+			// document.querySelectorAll('.smallBox')[i].style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+			document.querySelectorAll('.smallBox')[i].style.border = '1px';
+			document.querySelectorAll('.smallBox')[i].style.borderStyle = 'solid';
+			// document.querySelectorAll('.smallBox')[i].style.borderColor = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		}
+		else {
+			document.querySelectorAll('.smallBox')[i].innerHTML = rgb[i];
+			document.querySelectorAll('.smallBox')[i].style.backgroundColor = "red";
+		}
+	}
+}
+// + + Display For inputs without a hash #. at the beginning 3, 6. 
+// + Insert # value
+function withoutHash() {
+	var val = document.querySelector('input').value.toLowerCase();
+	var hex = val.charAt(0);
+	document.querySelector('.hexBox').innerHTML  = '#';
+	document.querySelector('.hexBox').style.backgroundColor = "transparent";
+}
+// + For 3 values
+function threeValues() {
+	var val = document.querySelector('input').value.toLowerCase();
+	var r = val.charAt(0);
+	var r1 = val.charAt(0);
+	var g = val.charAt(1);
+	var g1 = val.charAt(1);
+	var b = val.charAt(2);
+	var b1 = val.charAt(2);
+	//insert the values in an array	
+	var rgb = [r,r1,g,g1,b,b1,];
+	var rgbLength = rgb.length;
+	for (var i = 0 ; i < rgbLength ; i++) {
+		var pos = rgb[i];
+		if ( pos === "a" || pos === "b" || pos === "c" || pos === "d" || 
+			pos === "e" || pos === "f" || pos === "0" || pos === "1" || 
+			pos === "2" || pos === "3" || pos === "4" || pos === "5" || 
+			pos === "6" || pos === "7" || pos === "8" || pos === "9") {				
+			document.querySelectorAll('.smallBox')[i].innerHTML = rgb[i];
+			document.querySelectorAll('.smallBox')[i].style.backgroundColor = "transparent";
+			// document.querySelectorAll('.smallBox')[i].style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+			document.querySelectorAll('.smallBox')[i].style.border = '1px';
+			document.querySelectorAll('.smallBox')[i].style.borderStyle = 'solid';
+			// document.querySelectorAll('.smallBox')[i].style.borderColor = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		}
+		else {
+			document.querySelectorAll('.smallBox')[i].innerHTML = rgb[i];
+			document.querySelectorAll('.smallBox')[i].style.backgroundColor = "red";
+		}
+	}
+}
+// + For 6 values
+function sixValues() {
+	var val = document.querySelector('input').value.toLowerCase();
+	var r = val.charAt(0);
+	var r1 = val.charAt(1);
+	var g = val.charAt(2);
+	var g1 = val.charAt(3);
+	var b = val.charAt(4);
+	var b1 = val.charAt(5);
+	//insert the values in an array	
+	var rgb = [r,r1,g,g1,b,b1,];
+	var rgbLength = rgb.length;
+	for (var i = 0 ; i < rgbLength ; i++) {
+		var pos = rgb[i];
+		if ( pos === "a" || pos === "b" || pos === "c" || pos === "d" || 
+			pos === "e" || pos === "f" || pos === "0" || pos === "1" || 
+			pos === "2" || pos === "3" || pos === "4" || pos === "5" || 
+			pos === "6" || pos === "7" || pos === "8" || pos === "9") {				
+			document.querySelectorAll('.smallBox')[i].innerHTML = rgb[i];
+			document.querySelectorAll('.smallBox')[i].style.backgroundColor = "transparent";
+			// document.querySelectorAll('.smallBox')[i].style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+			document.querySelectorAll('.smallBox')[i].style.border = '1px';
+			document.querySelectorAll('.smallBox')[i].style.borderStyle = 'solid';
+			// document.querySelectorAll('.smallBox')[i].style.borderColor = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		}
+		else {
+			document.querySelectorAll('.smallBox')[i].innerHTML = rgb[i];
+			document.querySelectorAll('.smallBox')[i].style.backgroundColor = "red";
+		}
+	}
+}
+// + + + CALCULATIONS (HEX TO R.G.B)
+// + For 3 values
+function calculateThree() {
+	// + + + + + + + + + + + + + + + + + + + CALCULATE THE RGB VALUES.
+	var num = document.querySelector('input').value.toLowerCase();
+	var numLength = num.length;
+	var dd = document.querySelectorAll('.smallBox');
+	var hex;
+	// ---------- ---------- ---------- red value
+		var a = convertValue(0);
+		var b = convertValue(0);
+		var red = (a * 16) + (b * 1);
+		console.log(red)
+	// ---------- ---------- ---------- green value
+		var c = convertValue(1);
+		var d = convertValue(1);
+		var green = (c * 16) + (d * 1);
+		console.log(green)
+	// ---------- ---------- ---------- blue value
+		var e = convertValue(2);
+		var f = convertValue(2);
+		var blue = (e * 16) + (f * 1);
+		console.log(blue)
+	// Display RGB values
+		if ((red / red) !== 1) {
+			document.getElementById('rr').innerHTML = "???";
+			document.getElementById('rr').style.color = "red";
+		} else {
+			document.getElementById('rr').innerHTML = red;
+			changeColorScheme(red,green,blue);
+		}
+		if (isNaN(green)) {
+			console.log(green);
+			document.getElementById('gg').innerHTML = "???"
+			document.getElementById('gg').style.color = "red";
+		} else {
+			document.getElementById('gg').innerHTML = green;
+			changeColorScheme(red,green,blue);
+		}
+		if (isNaN(blue)) {
+			document.getElementById('bb').innerHTML = "???";
+			document.getElementById('bb').style.color = "red";
+		} else {
+			document.getElementById('bb').innerHTML = blue;
+			changeColorScheme(red,green,blue);
+		}
+	// Change the Bg Color scheme
+	ChangeBg(red,green,blue);
+}
+// + For 4 values
+function calculateFour() {
+	// + + + + + + + + + + + + + + + + + + + CALCULATE THE RGB VALUES.
+	var num = document.querySelector('input').value.toLowerCase();
+	var numLength = num.length;
+	var dd = document.querySelectorAll('.smallBox');
+	var hex;
+	// ---------- ---------- ---------- red value
+		var a = convertValue(1);
+		var b = convertValue(1);
+		var red = (a * 16) + (b * 1);
+		console.log(red)
+	// ---------- ---------- ---------- green value
+		var c = convertValue(2);
+		var d = convertValue(2);
+		var green = (c * 16) + (d * 1);
+		console.log(green)
+	// ---------- ---------- ---------- blue value
+		var e = convertValue(3);
+		var f = convertValue(3);
+		var blue = (e * 16) + (f * 1);
+		console.log(blue)
+	// Display RGB values
+		if ((red / red) !== 1) {
+			document.getElementById('rr').innerHTML = "???";
+			document.getElementById('rr').style.color = "red";
+		} else {
+			document.getElementById('rr').innerHTML = red;
+			changeColorScheme(red,green,blue);
+		}
+		if (isNaN(green)) {
+			console.log(green);
+			document.getElementById('gg').innerHTML = "???"
+			document.getElementById('gg').style.color = "red";
+		} else {
+			document.getElementById('gg').innerHTML = green;
+			changeColorScheme(red,green,blue);
+		}
+		if (isNaN(blue)) {
+			document.getElementById('bb').innerHTML = "???";
+			document.getElementById('bb').style.color = "red";
+		} else {
+			document.getElementById('bb').innerHTML = blue;
+			changeColorScheme(red,green,blue);
+		}
+	// Change the Bg Color scheme
+	ChangeBg(red,green,blue);
+}
+// + For 6 values
+function calculateSix() {
+	// + + + + + + + + + + + + + + + + + + + CALCULATE THE RGB VALUES.
+	var num = document.querySelector('input').value.toLowerCase();
+	var numLength = num.length;
+	var dd = document.querySelectorAll('.smallBox');
+	var hex;
+	// ---------- ---------- ---------- red value
+		var a = convertValue(0);
+		var b = convertValue(1);
+		var red = (a * 16) + (b * 1);
+		console.log(red)
+	// ---------- ---------- ---------- green value
+		var c = convertValue(2);
+		var d = convertValue(3);
+		var green = (c * 16) + (d * 1);
+		console.log(green)
+	// ---------- ---------- ---------- blue value
+		var e = convertValue(4);
+		var f = convertValue(5);
+		var blue = (e * 16) + (f * 1);
+		console.log(blue)
+	// Display RGB values
+		if ((red / red) !== 1) {
+			document.getElementById('rr').innerHTML = "???";
+			document.getElementById('rr').style.color = "red";
+		} else {
+			document.getElementById('rr').innerHTML = red;
+			changeColorScheme(red,green,blue);
+		}
+		if (isNaN(green)) {
+			console.log(green);
+			document.getElementById('gg').innerHTML = "???"
+			document.getElementById('gg').style.color = "red";
+		} else {
+			document.getElementById('gg').innerHTML = green;
+			changeColorScheme(red,green,blue);
+		}
+		if (isNaN(blue)) {
+			document.getElementById('bb').innerHTML = "???";
+			document.getElementById('bb').style.color = "red";
+		} else {
+			document.getElementById('bb').innerHTML = blue;
+			changeColorScheme(red,green,blue);
+		}
+	// Change the Bg Color scheme
+	ChangeBg(red,green,blue);
+}
+// + For 7 values
+function calculateSeven() {
 	var num = document.querySelector('input').value.toLowerCase();
 	var numLength = num.length;
 	var dd = document.querySelectorAll('.smallBox');
 	var hex;
 	// + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + CALCULATE THE RGB VALUES.
 	// ---------- ---------- ---------- red value
-		var a;
-		var b;
-		if (num.charAt(1) === "a") {
-			var a = 10
-		} else if (num.charAt(1) === "b") {
-			var a = 11
-		} else if (num.charAt(1) === "c") {
-			var a = 12
-		} else if (num.charAt(1) === "d") {
-			var a = 13
-		} else if (num.charAt(1) === "e") {
-			var a = 14
-		} else if (num.charAt(1) === "f") {
-			var a = 15
-		} else {
-			var a = num.charAt(1)
-		};
-		
-		if (num.charAt(2) === "a") {
-			var b = 10
-		} else if (num.charAt(2) === "b") {
-			var b = 11
-		} else if (num.charAt(2) === "c") {
-			var b = 12
-		} else if (num.charAt(2) === "d") {
-			var b = 13
-		} else if (num.charAt(2) === "e") {
-			var b = 14
-		} else if (num.charAt(2) === "f") {
-			var b = 15
-		} else {
-			var b = num.charAt(2)
-		};
+		var a = convertValue(1);
+		var b = convertValue(2);
 		var red = (a * 16) + (b * 1);
+		console.log(red)
 	// ---------- ---------- ---------- green value
-		var c;
-		var d;
-		if (num.charAt(3) === "a") {
-			var c = 10
-		} else if (num.charAt(3) === "b") {
-			var c = 11
-		} else if (num.charAt(3) === "c") {
-			var c = 12
-		} else if (num.charAt(3) === "d") {
-			var c = 13
-		} else if (num.charAt(3) === "e") {
-			var c = 14
-		} else if (num.charAt(3) === "f") {
-			var c = 15
-		} else {
-			var c = num.charAt(3)
-		};
-
-		if (num.charAt(4) === "a") {
-			var d = 10
-		} else if (num.charAt(4) === "b") {
-			var d = 11
-		} else if (num.charAt(4) === "c") {
-			var d = 12
-		} else if (num.charAt(4) === "d") {
-			var d = 13
-		} else if (num.charAt(4) === "e") {
-			var d = 14
-		} else if (num.charAt(4) === "f") {
-			var d = 15
-		} else {
-			var d = num.charAt(4)
-		};
+		var c = convertValue(3);
+		var d = convertValue(4);
 		var green = (c * 16) + (d * 1);
+		console.log(green)
 	// ---------- ---------- ---------- blue value
-		var e;
-		var f;
-		if (num.charAt(5) === "a") {
-			var e = 10
-		} else if (num.charAt(5) === "b") {
-			var e = 11
-		} else if (num.charAt(5) === "c") {
-			var e = 12
-		} else if (num.charAt(5) === "d") {
-			var e = 13
-		} else if (num.charAt(5) === "e") {
-			var e = 14
-		} else if (num.charAt(5) === "f") {
-			var e = 15
-		} else {var e = num.charAt(5)
-		};
-		
-		if (num.charAt(6) === "a") {
-			var f = 10
-		} else if (num.charAt(6) === "b") {
-			var f = 11
-		} else if (num.charAt(6) === "c") {
-			var f = 12
-		} else if (num.charAt(6) === "d") {
-			var f = 13
-		} else if (num.charAt(6) === "e") {
-			var f = 14
-		} else if (num.charAt(6) === "f") {
-			var f = 15
-		} else {var f = num.charAt(6)
-		};
+		var e = convertValue(5);
+		var f = convertValue(6);
 		var blue = (e * 16) + (f * 1);
+		console.log(blue)
+	// Display RGB values
+		if ((red / red) !== 1) {
+			document.getElementById('rr').innerHTML = "???";
+			document.getElementById('rr').style.color = "red";
+		} else {
+			document.getElementById('rr').innerHTML = red;
+			changeColorScheme(red,green,blue);
+		}
+		if (isNaN(green)) {
+			console.log(green);
+			document.getElementById('gg').innerHTML = "???"
+			document.getElementById('gg').style.color = "red";
+		} else {
+			document.getElementById('gg').innerHTML = green;
+			changeColorScheme(red,green,blue);
+		}
+		if (isNaN(blue)) {
+			document.getElementById('bb').innerHTML = "???";
+			document.getElementById('bb').style.color = "red";
+		} else {
+			document.getElementById('bb').innerHTML = blue;
+			changeColorScheme(red,green,blue);
+		}
+	// Change the Bg Color scheme
+	ChangeBg(red,green,blue);
+}
+// + Convert valid letter inputs to corresponding numbers
+function convertValue(j) {
+	var num = document.querySelector('input').value.toLowerCase();
+	var j;
+	if (num.charAt(j) === "a") {
+		var j = 10
+	} else if (num.charAt(j) === "b") {
+		var j = 11
+	} else if (num.charAt(j) === "c") {
+		var j = 12
+	} else if (num.charAt(j) === "d") {
+		var j = 13
+	} else if (num.charAt(j) === "e") {
+		var j = 14
+	} else if (num.charAt(j) === "f") {
+		var j = 15
+	} else {
+		var j = num.charAt(j)
+	}
+	return j;
+}
+// + + + CHANGE COLOR SCHEME OF THE PAGE TO MATCH CONVERTED VALUE
+function ChangeBg(red,green,blue) {
 	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Change the BG color to the "converted" color
-		document.querySelector("body").style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
-	// + + + + + + + + + + + + + + + + + + + + + + + + + + + + + CHANGE THE PAGE THEME TO COMPLIMENT THE BG COLOR.
-	// ---------- ---------- ---------- Convert rgb to HSL
+	document.querySelector("body").style.transition = "rgb(" + red + "," + green + "," + blue + ") 1s";
+	document.querySelector("body").style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+}
+function changeColorScheme(red,green,blue) {
+	// ---------- ---------- ---------- Convert rgb to HSL, (for changing the color scheme)
 	// ---------- ---------- Hue (H) Value
 		var hue;
 		var r = red / 255;
@@ -174,9 +427,7 @@ function inputSeven() {
 		} else if (h > 180) {
 			var complimentHue = h - 180;
 		}
-	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Change the POP-UP ICON color to the compliment color 
-		document.querySelector('i').style.color  = "hsl("+complimentHue+","+s+"%,"+l+"%)"
-	// ---------- ---------- ---------- Calculate darker BG color, Monochrome
+	// ---------- ---------- ---------- Calculate darker color, Monochrome
 		var darkLightness;
 		if (l <= 50) {
 			var darkLightness = 90;
@@ -187,47 +438,9 @@ function inputSeven() {
 		document.querySelector('h1').style.color  = "hsl("+h+","+s+"%,"+darkLightness+"%)";
 		document.querySelector('.data p').style.color  = "hsl("+h+","+s+"%,"+darkLightness+"%)";
 		document.querySelector('.rgb').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.querySelector('.rules p').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
 	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Display the RED, GREEN and BLUE colors
-		if (isNaN(red)) {
-			document.getElementById('rr').innerHTML = "???";
-			document.getElementById('rr').style.color = "red";
-		} else {
-			document.getElementById('rr').innerHTML = red;
-			document.getElementById('rr').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
-		}
-		if (isNaN(green)) {
-			document.getElementById('gg').innerHTML = "???"
-			document.getElementById('gg').style.color = "red";
-		} else {
-			document.getElementById('gg').innerHTML = green;
-			document.getElementById('gg').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
-		}
-		if (isNaN(blue)) {
-			document.getElementById('bb').innerHTML = "???";
-			document.getElementById('bb').style.color = "red";
-		} else {
-			document.getElementById('bb').innerHTML = blue;
-			document.getElementById('bb').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
-		}
-	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^display error on the inputs.
-		for (var i = 0 ; i <= numLength ; i++) {
-			var dd = document.querySelectorAll('.smallBox');
-			dd[i].innerHTML = num.charAt(i);
-			var position = num.charAt(i);
-			if ( position === "a" || position === "b" || position === "c" || position === "d" || 
-				position === "e" || position === "f" || position === "0" || position === "1" || 
-				position === "2" || position === "3" || position === "4" || position === "5" || 
-				position === "6" || position === "7" || position === "8" || position === "9" ) {
-				document.querySelector('.error').style.visibility = 'hidden';
-				document.querySelectorAll('.smallBox')[0].innerHTML = '#';
-				document.querySelectorAll('.smallBox')[0].style.background  = 'green';
-				dd[i].innerHTML = num.charAt(i);
-				dd[i].style.backgroundColor = "green"
-			}
-			 else {
-			 	document.querySelector('.error').style.visibility = 'visible';
-				dd[i].style.backgroundColor = "red"
-			}
-		}
-		console.log('ola it"s working')
+		document.getElementById('rr').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.getElementById('gg').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.getElementById('bb').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
 }
