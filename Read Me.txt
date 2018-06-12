@@ -1,2 +1,4 @@
 1. When converting #000000, after making an input error and corecting it, the rgb(0,0,0) retains the red error color.
 2. On page load (or after a different hex value is entered) When an input of #000000 is entered, the page texts doesn't convert to a contrasting color, the text remains black but after a different hex value is entered, then #000000 is entered it works fine.
+******
+3. with the version 3 js, when an input with two zeros is keyed in, the rgb red value 'reads' it an not a number even though it is a number. e.g. #000000
