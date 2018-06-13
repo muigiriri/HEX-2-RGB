@@ -15,10 +15,11 @@ body {
 	width: 100%;
 	height: 800px;
 	font-family: 'roboto' sans serif;
-	transition: background-color 1s;
+	transition: background-color 0.5s;
 	background-color: antiquewhite;
 }
-/*---------------------------------------------------------BODY*/
+/*--------------------------------------------------------- + + + BODY*/
+/*--------------------------------------------------------- + + HEADING*/
 	.main {
     width: auto;
     height: auto;
@@ -30,181 +31,113 @@ body {
 		.main h1 {
 			text-align: left;
 			font-family: 'roboto', 'open-sans', sans serif;
+			transition: color 0.5s;
 		}
+/*--------------------------------------------------------- + + INPUT*/
 		.inputContainer {
 	    	width: auto;
 			height: auto;
 		}
-		#inputs {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			max-width: 1000px;
-			height: auto;
-		}
-			.data {
+			#inputs {
 				display: flex;
-				flex-direction: column;
 				flex-wrap: wrap;
-				width: 400px;
+				justify-content: center;
+				max-width: 1000px;
 				height: auto;
-				margin: 20px 10px;
 			}
-			.error {
-				display: none;
-				flex-direction: column;
-				flex-wrap: wrap;
-				width: 400px;
-				height: auto;
-				margin: 20px 10px;
-			}
-			#hex {
-				position: relative;
-			}
-				.format {					
-					position: absolute;
-					left: -90px;
-					top: 40px;
-					width: auto;
-					height: auto;
-					border: 1px solid none;
-				}
-		        	.format div:first-child {
-						display: none;
-						position: absolute;
-						padding: 20px;
-						width: auto;
-						height: auto;
-						background-color: white;
-						border-radius: 10px;
-						font-family: 'roboto', sans serif;
-						box-shadow: -3px 2px 5px gray;
-						}
-					.format div:first-child i {
-						width: 100%;
-						color: hsl(120,50%,90%);
-						font-size: 1.2em;
-						padding: 0 0 5px 0;
-					}
-					.format div:first-child b {
-						border-bottom: 2px solid gray;
-						padding: 4px 0;
-						color: green;
-					}
-					.format div:first-child div {
-						padding: 5px 0;
-					}
-					.format div:last-child {
-						display: none;
-						left: 60px;
-						top: 15px;
-						transform: rotate(45deg);
-						position: relative;
-						
-						width: 15px;
-						height: 15px;
-						background-color: white;
-					}
-				.data p, .error p {
-					font-family: 'roboto';
-					text-align: left;
-					margin: 10px;
-					padding-left: 10px;
-					font-style: italic;
-				}
-				input[name="hexValue"] {
-					width: 100%;
-				 	height: 50px;
-					border-radius: 15px;
-          			padding: 12px 20px;
-					box-sizing: border-box;
-					border: 0 solid #ccc;
-					border-bottom: 2px solid cyan;
-					border-radius: 4px;
-					background-color: white;
-					resize: none;
-					outline: none;
-					font-size: 1em;
-				}
-				.data > div {
+				.data {
 					display: flex;
-					justify-content: center;
+					flex-direction: column;
+					flex-wrap: wrap;
+					width: 400px;
+					height: auto;
+					margin: 20px 10px;
 				}
-				.rgb {
+					.data p {
+						font-family: 'roboto';
+						text-align: left;
+						margin: 10px;
+						padding-left: 10px;
+						font-style: italic;
+						transition: color 0.5s;
+					}
+					input[name="hexValue"] {
+						width: 100%;
+					 	height: 50px;
+						border-radius: 15px;
+	          			padding: 12px 20px;
+						box-sizing: border-box;
+						border: 0 solid #ccc;
+						border-bottom: 2px solid cyan;
+						border-radius: 4px;
+						background-color: white;
+						resize: none;
+						outline: none;
+						font-size: 1em;
+					}
+					.data > div {
+						display: flex;
+						justify-content: center;
+					}
+					.rgb {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						font-family: 'roboto', sans serif;
+						font-size: 2.5em;
+						transition: color 0.5s;
+					}
+					#rr, #gg, #bb {
+						transition: color 0.5s;
+					}
+					input:focus {
+						background-color: white;
+						color: grey;
+					}
+					input:focus .format > div {
+						display: block;
+					}
+				.error {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					margin: 0 10px 20px 10px;
+				}
+				.hexBox {
+					width: 40px;
+					height: 40px;
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					font-family: 'roboto', sans serif;
-					font-size: 2.5em;
-				}
-				.rgbValue {
-					width: 30%;
-				 	height: 50px;
-					border-radius: 15px;
-          			padding: 15px 20px;
-					margin: 0 3px;
-					border: 2px solid lightsteelblue;
-					border-radius: 5px;
+					border-radius: 20px;
+					margin: 0 5px;
 					background-color: transparent;
-					color: black;
-					resize: none;
-					outline: none;
-					font-size: 1em;
-					font-family: 'roboto';
-					font-weight: 600;
-					text-align: center
-				}
-				input:focus {
-					background-color: white;
-					color: grey;
-				}
-				input:focus .format > div {
-					display: block;
-				}
-			.error {
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				margin: 0 10px 20px 10px;
-			}
-			.hexBox {
-				width: 40px;
-				height: 40px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				border-radius: 20px;
-				margin: 0 5px;
-				background-color: transparent;
-				color: white;
-				font-family: 'roboto';
-				font-size: 1.1em;
-				border: 1px solid lightgray;
-			}
-			.smallBox {
-				width: 40px;
-				height: 40px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				border-radius: 20px;
-				margin: 0 5px;
-				background-color: transparent;
-				color: white;
-				font-family: 'roboto';
-				font-size: 1.1em;
-				border: 1px solid lightgray;
-			}
-				.smallBox p {
-					background-color: none;
-					font-family: 'roboto';
-					font-size: 1.4em;
 					color: white;
+					font-family: 'roboto';
+					font-size: 1.1em;
+					border: 1px solid lightgray;
 				}
-				.smallBoxError {
-					background-color: red;
+				.smallBox {
+					width: 40px;
+					height: 40px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					border-radius: 20px;
+					margin: 0 5px;
+					background-color: transparent;
 					color: white;
+					font-family: 'roboto';
+					font-size: 1.1em;
+					border: 1px solid lightgray;
 				}
+					.smallBox p {
+						background-color: none;
+						font-family: 'roboto';
+						font-size: 1.4em;
+						color: white;
+					}
+/*--------------------------------------------------------- + + RULES*/
 		.rules {
 			display: flex;
 			justify-content: flex-start;
@@ -215,4 +148,5 @@ body {
 				font-family: 'roboto';
 				font-size: 0.75em;
 				font-style: italic;
+				transition: color 0.5s;
 			}
