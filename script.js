@@ -392,7 +392,7 @@ function convertValue(j) {
 // + + + CHANGE COLOR SCHEME OF THE PAGE TO MATCH CONVERTED VALUE
 function ChangeBg(red,green,blue) {
 	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Change the BG color to the "converted" color
-	document.querySelector("body").style.transition = "rgb(" + red + "," + green + "," + blue + ") 1s";
+	document.querySelector("body").style.transition = "rgb(" + red + "," + green + "," + blue + ") 0.5s";
 	document.querySelector("body").style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
 }
 function changeColorScheme(red,green,blue) {
@@ -435,12 +435,19 @@ function changeColorScheme(red,green,blue) {
 			var darkLightness = 10;
 		}
 	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Change the Title and subtitles to a LIGHT monochrome theme
+		document.querySelector('h1').style.transition  = "hsl("+h+","+s+"%,"+darkLightness+"%) 0.5s";
 		document.querySelector('h1').style.color  = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.querySelector('.data p').style.transition = "hsl("+h+","+s+"%,"+darkLightness+"%) 0.5s";
 		document.querySelector('.data p').style.color  = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.querySelector('.rgb').style.transition = "hsl("+h+","+s+"%,"+darkLightness+"%) 0.5s";
 		document.querySelector('.rgb').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.querySelector('.rules p').style.transition = "hsl("+h+","+s+"%,"+darkLightness+"%) 0.5s";
 		document.querySelector('.rules p').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
-	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Display the RED, GREEN and BLUE colors
+	// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Change the RED, GREEN and BLUE colors
+		document.getElementById('rr').style.transition = "hsl("+h+","+s+"%,"+darkLightness+"%) 0.5s";
 		document.getElementById('rr').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.getElementById('gg').style.transition = "hsl("+h+","+s+"%,"+darkLightness+"%) 0.5s";
 		document.getElementById('gg').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
+		document.getElementById('bb').style.transition = "hsl("+h+","+s+"%,"+darkLightness+"%) 0.5s";
 		document.getElementById('bb').style.color = "hsl("+h+","+s+"%,"+darkLightness+"%)";
 }
