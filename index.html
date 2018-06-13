@@ -17,9 +17,8 @@
 		<div class="inputContainer">
 			<div id="inputs">
 				<div class="data" id="hex">
-					<p>Input HEX value:</p> 
-					<input type="text" name="hexValue" maxlength="7" autofocus="autofocus" placeholder="HEX value..." 
-					onfocus="displayFormat()" oninput="start()">
+					<p>Type or paste HEX value:</p> 
+					<input type="text" name="hexValue" maxlength="7" autofocus="autofocus" placeholder="" oninput="start()">
 				</div>
 				<div class="data" id="rgb">
 					<p>&nbsp</p> 
@@ -28,7 +27,7 @@
 					</div>
 				</div>
 				<div class="error">
-					<div class="smallBox"><p></p></div>
+					<div class="hexBox">#</div>
 					<div class="smallBox"><p></p></div>
 					<div class="smallBox"><p></p></div>
 					<div class="smallBox"><p></p></div>
@@ -39,14 +38,15 @@
 				<div class="data"></div>
 			</div>
 			<div class="rules">
-				<p><b>Rules</b><br>
-					1. The hash (#) at the begining is optional.<br>
-					2. 7 characters or 4 characters (including the #).<br>
-					3. 6 characters or 3 characters (excluding the #).<br>
-					2. Valid letters a, b, c, d, e, f<br>
-					4. Any number combinations E.g.(#143260)<br>
-					5. Any letter combinations E.g.(#abfbcd)<br>
-					6. Any numbers and letters combinations E.g.(#a23b9d)<br>
+				<p><b>Rules for the HEX value</b><br><br>
+					1. 7 or 4 characters (with a '#' at the begining).<br>
+					2. 6 or 3 characters (without the #).<br>
+					3. E.g. #113300, 113300, #130 or 130<br>
+					4. Any number combination E.g. #143260<br>
+					5. Any letter combination E.g.(#abfbcd)<br>
+					6. Valid letters a, b, c, d, e, f<br>
+					7. Any numbers and letters combinations E.g.(#a23b9d)<br>		
+					
 				</p>
 			</div>
 		</div>
