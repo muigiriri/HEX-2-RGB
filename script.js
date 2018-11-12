@@ -8,19 +8,19 @@ function start() {
 		withoutHash();
 		threeValues();
 		calculateThree();
-		changeColorScheme()
+		changeColorScheme();
 	} else if (valLength == 1 || valLength == 2 || valLength == 5) {
 		console.log('not valid')
 	}else if (valLength == 4) {
 		withHash();
 		fourValues();
 		calculateFour();
-		changeColorScheme()	
+		changeColorScheme();
 	} else if (valLength == 6) {
 		withoutHash()
 		sixValues();
 		calculateSix();	
-		changeColorScheme()	
+		changeColorScheme();
 	} else if (valLength == 7) {
 		withHash();	
 		sevenValues();
